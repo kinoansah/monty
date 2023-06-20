@@ -1,4 +1,4 @@
-0x19. C - Stack, Queues - LIFO, FIF
+0x19. C - Stack, Queues - LIFO, FIFO
 The Monty language project performed by Kingsley Owusu Ansah.
 
 Project Tasks:
