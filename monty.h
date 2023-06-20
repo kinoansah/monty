@@ -9,6 +9,7 @@ void pint(int line_number, int *stack, int top);
 void pop(int line_number, int *top);
 void swap(int line_number, int *stack, int top);
 void add(int line_number, int *stack, int *top);
-void nop();
+void nop(void);
 
 #endif /* MONTY_H */
+

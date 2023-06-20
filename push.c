@@ -4,20 +4,20 @@
 
 void push(int line_number, char *argument, int *stack, int *top) {
     int value;
-    
+
     if (argument == NULL) {
-        printf("L%d: usage: push integer\n", line_number);
+        fprintf(stderr, "L%d: usage: push integer\n", line_number);
         exit(EXIT_FAILURE);
     }
 
     value = atoi(argument);
     if (value == 0 && argument[0] != '0') {
-        printf("L%d: usage: push integer\n", line_number);
+        fprintf(stderr, "L%d: usage: push integer\n", line_number);
         exit(EXIT_FAILURE);
     }
 
-    if (*top == 100 - 1) {
-        printf("L%d: Stack overflow\n", line_number);
+    if (*top == STACK_SIZE - 1) {
+        fprintf(stderr, "L%d: Stack overflow\n", line_number);
         exit(EXIT_FAILURE);
     }
 

@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "monty.h"
 
-int main() {
+int main(void) {
     /* Example usage */
     int stack[STACK_SIZE];
     int top = -1;
@@ -18,3 +19,4 @@ int main() {
 
     return 0;
 }
+

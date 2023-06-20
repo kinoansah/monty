@@ -7,3 +7,4 @@ void pall(int *stack, int top) {
         printf("%d\n", stack[i]);
     }
 }
+

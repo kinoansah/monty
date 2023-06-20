@@ -4,9 +4,10 @@
 
 void pint(int line_number, int *stack, int top) {
     if (top == -1) {
-        printf("L%d: can't pint, stack empty\n", line_number);
+        fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
         exit(EXIT_FAILURE);
     }
 
     printf("%d\n", stack[top]);
 }
+
