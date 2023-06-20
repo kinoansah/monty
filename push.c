@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include "monty.h"
 
-void push(int line_number, char *argument, int *stack, int *top) {
+void push(int line_number, char *argument, stack_t **stack) {
     int value;
+    stack_t *new_node;
 
     if (argument == NULL) {
         fprintf(stderr, "L%d: usage: push integer\n", line_number);
@@ -16,11 +17,20 @@ void push(int line_number, char *argument, int *stack, int *top) {
         exit(EXIT_FAILURE);
     }
 
-    if (*top == STACK_SIZE - 1) {
-        fprintf(stderr, "L%d: Stack overflow\n", line_number);
+    new_node = malloc(sizeof(stack_t));
+    if (new_node == NULL) {
+        fprintf(stderr, "L%d: Memory allocation failed\n", line_number);
         exit(EXIT_FAILURE);
     }
 
-    stack[++(*top)] = value;
+    new_node->n = value;
+    new_node->prev = NULL;
+    new_node->next = *stack;
+
+    if (*stack != NULL) {
+        (*stack)->prev = new_node;
+    }
+
+    *stack = new_node;
 }
 

@@ -2,13 +2,12 @@
 #include <stdlib.h>
 #include "monty.h"
 
-void add(int line_number, int *stack, int *top) {
-    if (*top < 1) {
+void add(int line_number, stack_t **stack) {
+    if (*stack == NULL || (*stack)->next == NULL) {
         fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
         exit(EXIT_FAILURE);
     }
 
-    stack[*top - 1] += stack[*top];
-    (*top)--;
+    (*stack)->next->n += (*stack)->n;
+    pop(line_number, stack);
 }
-

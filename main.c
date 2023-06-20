@@ -4,17 +4,16 @@
 
 int main(void) {
     /* Example usage */
-    int stack[STACK_SIZE];
-    int top = -1;
+    stack_t *stack = NULL;
 
-    push(1, "10", stack, &top);
-    push(2, "20", stack, &top);
-    pall(stack, top);
-    pint(3, stack, top);
-    pop(4, &top);
-    swap(5, stack, top);
-    add(6, stack, &top);
-    pall(stack, top);
+    push(1, "10", &stack);
+    push(2, "20", &stack);
+    pall(&stack);
+    pint(3, &stack);
+    pop(4, &stack);
+    swap(5, &stack);
+    add(6, &stack);
+    pall(&stack);
     nop();
 
     return 0;
