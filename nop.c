@@ -1,6 +1,9 @@
 #include "monty.h"
 
-void nop(void) {
-    /* Do nothing */
+/**
+ * nop - Does nothing
+ */
+void nop(void)
+{
+	/* Do nothing */
 }
-
