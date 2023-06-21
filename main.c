@@ -9,17 +9,19 @@
  */
 int main(void)
 {
-    stack_t *stack = NULL;
+	/* Example usage */
+	stack_t *stack = NULL;
 
-    push(&stack, 10, "1");
-    push(&stack, 20, "2");
-    pall(&stack, "3");
-    pint(&stack, "4");
-    pop(&stack, "5");
-    swap(&stack, "6");
-    add(&stack, "7");
-    pall(&stack, "8");
-    nop(&stack, "9");
+	push(1, "10", &stack);
+	push(2, "20", &stack);
+	pall(&stack);
+	pint(&stack, 3);
+	pop(4, &stack);
+	swap(5, &stack);
+	add(6, &stack);
+	pall(&stack);
+	nop();
 
-    return 0;
+	return (0);
 }
+
