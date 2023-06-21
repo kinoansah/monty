@@ -1,21 +1,23 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include "monty.h"
+#include <stdio.h>
 
-int is_integer(const char *str)
+int is_valid_integer(const char *str)
 {
-    int i = 0;
-
-    if (str == NULL || *str == '\0')
+    if (*str == '\0') /* Empty string */
         return 0;
 
-    if (str[i] == '-' || str[i] == '+')
-        i++;
+    if (*str == '-' || *str == '+') /* Skip sign if present */
+        str++;
 
-    for (; str[i] != '\0'; i++)
+    if (*str == '\0') /* Only sign present */
+        return 0;
+
+    while (*str != '\0')
     {
-        if (str[i] < '0' || str[i] > '9')
+        if (*str < '0' || *str > '9') /* Non-digit character found */
             return 0;
+        str++;
     }
 
     return 1;
@@ -26,7 +28,7 @@ void push(int line_number, char *argument, stack_t **stack)
     int value;
     stack_t *new_node;
 
-    if (argument == NULL || !is_integer(argument))
+    if (argument == NULL || !is_valid_integer(argument))
     {
         fprintf(stderr, "L%d: usage: push integer\n", line_number);
         exit(EXIT_FAILURE);
@@ -55,16 +57,5 @@ void push(int line_number, char *argument, stack_t **stack)
     }
 
     *stack = new_node;
-}
-
-void pall(stack_t **stack)
-{
-    stack_t *current = *stack;
-
-    while (current != NULL)
-    {
-        printf("%d\n", current->n);
-        current = current->next;
-    }
 }
 
