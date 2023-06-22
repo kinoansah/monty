@@ -1,5 +1,5 @@
-#ifndef STACK_H
-#define STACK_H
+#ifndef MONTY_H
+#define MONTY_H
 
 /* Struct for a stack node */
 typedef struct StackNode {
@@ -31,4 +31,5 @@ void add(StackNode** root);
 /* Function to print all the values on the stack */
 void printStack(StackNode* root);
 
-#endif /* STACK_H */
+#endif /* MONTY_H */
+

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "stack.h"
+#include "monty.h"
 
 StackNode* createNode(int data) {
     StackNode* newNode = (StackNode*)malloc(sizeof(StackNode));
