@@ -16,7 +16,6 @@
 void executeInstruction(char *instruction, stack_t **stack, int lineNum)
 {
 	char *arg;
-	int value;
 
 	if (strcmp(instruction, "push") == 0)
 	{
@@ -26,8 +25,7 @@ void executeInstruction(char *instruction, stack_t **stack, int lineNum)
 			fprintf(stderr, "Error: L%d: usage: push integer\n", lineNum);
 			exit(EXIT_FAILURE);
 		}
-		value = atoi(arg);
-		push(stack, value);
+		push(stack, atoi(arg));
 	}
 	else if (strcmp(instruction, "pall") == 0)
 	{
