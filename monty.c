@@ -13,7 +13,7 @@
  *
  * Return: void
  */
-void executeInstruction(char *instruction, StackNode **stack, int lineNum)
+void executeInstruction(char *instruction, stack_t **stack, int lineNum)
 {
 	char *arg;
 	int value;
@@ -76,7 +76,7 @@ void executeInstruction(char *instruction, StackNode **stack, int lineNum)
 int main(int argc, char *argv[])
 {
 	FILE *file;
-	StackNode *stack = NULL;
+	stack_t *stack = NULL;
 	char line[MAX_LINE_LENGTH];
 	char *instruction;
 	int lineNum = 0;
@@ -107,4 +107,3 @@ int main(int argc, char *argv[])
 	fclose(file);
 	return (EXIT_SUCCESS);
 }
-

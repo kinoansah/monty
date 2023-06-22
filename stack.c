@@ -2,36 +2,36 @@
 #include <stdlib.h>
 #include "monty.h"
 
-StackNode *createNode(int data)
+stack_t *createNode(int n)
 {
-	StackNode *newNode = (StackNode *)malloc(sizeof(StackNode));
+	stack_t *newNode = (stack_t *)malloc(sizeof(stack_t));
 
 	if (newNode == NULL)
 	{
 		fprintf(stderr, "Error: Unable to allocate memory for a new node.\n");
 		exit(EXIT_FAILURE);
 	}
-	newNode->data = data;
+	newNode->n = n;
 	newNode->next = NULL;
 	return (newNode);
 }
 
-int isEmpty(StackNode *root)
+int isEmpty(stack_t *root)
 {
 	return (root == NULL);
 }
 
-void push(StackNode **root, int data)
+void push(stack_t **root, int data)
 {
-	StackNode *newNode = createNode(data);
+	stack_t *newNode = createNode(data);
 
 	newNode->next = *root;
 	*root = newNode;
 }
 
-int pop(StackNode **root)
+int pop(stack_t **root)
 {
-	StackNode *temp;
+	stack_t *temp;
 	int data;
 
 	if (isEmpty(*root))
@@ -42,22 +42,22 @@ int pop(StackNode **root)
 
 	temp = *root;
 	*root = (*root)->next;
-	data = temp->data;
+	data = temp->n;
 	free(temp);
 	return (data);
 }
 
-int peek(StackNode *root)
+int peek(stack_t *root)
 {
 	if (isEmpty(root))
 	{
 		fprintf(stderr, "Error: can't print, stack empty.\n");
 		exit(EXIT_FAILURE);
 	}
-	return (root->data);
+	return (root->n);
 }
 
-void swap(StackNode **root)
+void swap(stack_t **root)
 {
 	int temp;
 
@@ -67,12 +67,12 @@ void swap(StackNode **root)
 		exit(EXIT_FAILURE);
 	}
 
-	temp = (*root)->data;
-	(*root)->data = (*root)->next->data;
-	(*root)->next->data = temp;
+	temp = (*root)->n;
+	(*root)->n = (*root)->next->n;
+	(*root)->next->n = temp;
 }
 
-void add(StackNode **root)
+void add(stack_t **root)
 {
 	if (isEmpty(*root) || isEmpty((*root)->next))
 	{
@@ -80,17 +80,17 @@ void add(StackNode **root)
 		exit(EXIT_FAILURE);
 	}
 
-	(*root)->next->data += (*root)->data;
+	(*root)->next->n += (*root)->n;
 	pop(root);
 }
 
-void printStack(StackNode *root)
+void printStack(stack_t *root)
 {
-	StackNode *current = root;
+	stack_t *current = root;
 
 	while (current != NULL)
 	{
-		printf("%d\n", current->data);
+		printf("%d\n", current->n);
 		current = current->next;
 	}
 }
