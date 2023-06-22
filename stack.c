@@ -21,32 +21,6 @@ int isEmpty(stack_t *root)
 	return (root == NULL);
 }
 
-void push(stack_t **root, int data)
-{
-	stack_t *newNode = createNode(data);
-
-	newNode->next = *root;
-	*root = newNode;
-}
-
-int pop(stack_t **root)
-{
-	stack_t *temp;
-	int data;
-
-	if (isEmpty(*root))
-	{
-		fprintf(stderr, "Error: can't pop an empty stack.\n");
-		exit(EXIT_FAILURE);
-	}
-
-	temp = *root;
-	*root = (*root)->next;
-	data = temp->n;
-	free(temp);
-	return (data);
-}
-
 int peek(stack_t *root)
 {
 	if (isEmpty(root))
@@ -55,33 +29,6 @@ int peek(stack_t *root)
 		exit(EXIT_FAILURE);
 	}
 	return (root->n);
-}
-
-void swap(stack_t **root)
-{
-	int temp;
-
-	if (isEmpty(*root) || isEmpty((*root)->next))
-	{
-		fprintf(stderr, "Error: can't swap, stack too short.\n");
-		exit(EXIT_FAILURE);
-	}
-
-	temp = (*root)->n;
-	(*root)->n = (*root)->next->n;
-	(*root)->next->n = temp;
-}
-
-void add(stack_t **root)
-{
-	if (isEmpty(*root) || isEmpty((*root)->next))
-	{
-		fprintf(stderr, "Error: can't add, stack too short.\n");
-		exit(EXIT_FAILURE);
-	}
-
-	(*root)->next->n += (*root)->n;
-	pop(root);
 }
 
 void printStack(stack_t *root)
