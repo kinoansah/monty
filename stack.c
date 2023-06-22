@@ -36,7 +36,7 @@ int pop(StackNode **root)
 
 	if (isEmpty(*root))
 	{
-		fprintf(stderr, "Error: can't pop an empty stack.\n");
+		fprintf(stderr, "L<line_number>: can't pop an empty stack.\n");
 		exit(EXIT_FAILURE);
 	}
 
