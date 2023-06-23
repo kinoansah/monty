@@ -81,4 +81,79 @@ The opcode nop doesn’t do anything.
 
 Usage: nop
 
+# advanced tasks
+
+6. sub
+
+Implement the sub opcode.
+
+The sub opcode
+
+The opcode sub subtracts the top element of the stack from the second top element of stack.
+	Usage: sub
+	If the stack contains less than two elements, print the error message L<line_number>: can't sub, stack too short, followed by a new line, and exit with the status EXIT_FAILURE
+	The result is stored in the second top element of the stack, and the top element is removed, so that at the end:
+	The top element of the stack contains the result
+	The stack is one element shorter
+
+7. div
+
+Implement the div opcode.
+
+The div opcode
+
+The opcode div divides the second top element of the stack by the top element of the stack.
+	Usage: div
+	If the stack contains less than two elements, print the error message L<line_number>: can't div, stack too short, followed by a new line, and exit with the status EXIT_FAILURE
+	The result is stored in the second top element of the stack, and the top element is removed, so that at the end:
+		The top element of the stack contains the result
+		The stack is one element shorter
+	If the top element of the stack is 0, print the error message L<line_number>:
+	division by zero, followed by a new line, and exit with the status EXIT_FAILURE
+
+8. mul
+
+Implement the mul opcode.
+
+The opcode mul multiplies the second top element of the stack with the top element of the stack.
+	Usage: mul
+	If the stack contains less than two elements, print the error message L<line_number>: can't mul, stack too short, followed by a new line, and exit with the status EXIT_FAILURE
+	The result is stored in the second top element of the stack, and the top element is removed, so that at the end:
+	The top element of the stack contains the result
+	The stack is one element shorter
+
+9. mod
+
+Implement the mod opcode.
+
+The mode opcode
+
+The opcode mod computes the rest of the dividion of the second top element of the stack by the top element of the stack.
+	Usage: mod
+	If the stack contains less than two elements, print the error message L<line_number>: can't mod, stack too short, followed by a new line, and exit with the status EXIT_FAILURE
+	The result is stored in the second top element of the stack, and the top element is removed, so that at the end:
+		The top element of the stack contains the result
+		The stack is one element shorter
+	If the top element of the stack is 0, print the error message L<line_number>: division by zero, followed by a new line, and exit with the status EXIT_FAILURE
+
+10. comments
+
+Every good language comes with the capability of commenting. When the first non-space character of a line is #, treat this line as a comment (don't do anything.
+
+11. pchar
+
+Implement the pchar opcode.
+
+The pchar opcode
+
+The opcode pchar prints the char at the top of the stack, followed by a new line.
+	Usage: pchar
+	The integer stored at the top of the stack is treated as the ascii value of the character to be printed
+	If the value is not in the ascii table (man ascii) print the error message L<line_number>: can't pchar, value out of range, followed by a new line, and exit with the status EXIT_FAILURE
+	If the stack is empty, print the error message L<line_number>: can't pchar, stack empty, followed by a new line, and exit with the status EXIT_FAILURE
+
+12. pstr
+
+
+
 ===================================================================
