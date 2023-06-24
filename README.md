@@ -154,6 +154,53 @@ The opcode pchar prints the char at the top of the stack, followed by a new line
 
 12. pstr
 
+Implement the pstr opcode.
 
+The pstr opcode
 
-===================================================================
+The opcode pstr prints the string starting at the top of the stack, followed by a new line.
+
+13. rotl
+
+Implement the rotl opcode.
+
+The rotl opcode
+
+The opcode rotl rotates the stack to the top.
+
+14. rotr
+
+Implement the rotr opcode.
+
+The rotr opcode
+
+The opcode rotr rotates the stack to the bottom.
+
+15. stack, queue
+
+Implement the stack and queue opcodes.
+
+The stack opcode
+
+The opcode stack sets the format of the data to a stack (LIFO). This is the default behavior of the program.
+
+16. Brainfck
+
+Write a Brainfck script that prints School, followed by a new line.
+All your Brainf*ck files should be stored inside the bf sub directory
+
+17. Add two digits
+
+Add two digits given by the user.
+Read the two digits from stdin, add them, and print the result The total of the two digits with be one digit-long (<10)
+
+18. Multiplication
+
+Multiply two digits given by the user.
+Read the two digits from stdin, multiply them, and print the result The result of the multiplication will be one digit-long (<10)
+
+19. Multiplication level up
+
+Multiply two digits given by the user. Read the two digits from stdin, multiply them, and print the result, followed by a new line
+
+===================================================================================================================================
